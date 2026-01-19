@@ -1,0 +1,32 @@
+/* Paleta pastel y estilos básicos */
+:root{
+  --bg:#fffaf6;
+  --muted:#8a8a8a;
+  --accent:#ffd6e0; /* rosa pastel */
+  --accent-2:#e2f0ff; /* azul pastel */
+  --card:#fff;
+  --text:#2b2b2b;
+}
+*{box-sizing:border-box}
+body{font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:var(--text);margin:0}
+.container{max-width:980px;margin:0 auto;padding:24px}
+.hero{background:linear-gradient(135deg,var(--accent) 0%, var(--accent-2) 100%);padding:48px 0;text-align:center}
+.hero h1{margin:0;font-size:2rem;color:#5b3b4a}
+.hero .lead{margin-top:8px;color:var(--muted)}
+section{margin:32px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center}
+.card img{width:100%;height:160px;object-fit:contain}
+.grid{display:flex;gap:12px;flex-wrap:wrap}
+.grid img{width:32%;border-radius:12px}
+.contact form{display:grid;gap:12px;max-width:560px}
+.contact label{display:flex;flex-direction:column;font-size:0.95rem}
+input[type="text"],input[type="email"],textarea{padding:10px;border-radius:8px;border:1px solid #eee;background:#fff}
+.btn{background:#ff9fb1;color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+.note{font-size:0.85rem;color:var(--muted)}
+.feedback{padding:10px;border-radius:8px}
+.feedback.success{background:#e7ffe9;color:#1a6f2e}
+.feedback.error{background:#ffe7ea;color:#7a1720}
+footer{padding:18px 0;text-align:center;color:var(--muted);font-size:0.9rem}
+
+@media(max-width:520px){.grid img{width:100%}}

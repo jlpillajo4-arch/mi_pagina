@@ -1,0 +1,4 @@
+-- solo terminal 
+C:\xampp\php\php -S localhost:8000
+-- solo pagina
+http://localhost:8000

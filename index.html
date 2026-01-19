@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutinas para Mujeres — Salud y Bienestar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Rutinas y bienestar para mujeres</h1>
+            <p class="lead">Ejercicios, consejos y estilo de vida pensados para ti. Colores suaves, enfoque positivo.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Bienvenida</h2>
+            <p>Esta página ofrece rutinas de ejercicios, consejos de salud y una pequeña galería de imágenes inspiradoras. Todo pensando en el bienestar femenino.</p>
+        </section>
+
+        <section class="routines">
+            <h2>Rutinas destacadas</h2>
+            <div class="cards">
+                <article class="card">
+                    <img src="images/woman1.jpg" alt="Rutina cardio" />
+                    <h3>Cardio suave</h3>
+                    <p>20–30 min de ejercicios aeróbicos de bajo impacto para mejorar tu resistencia.</p>
+                </article>
+
+                <article class="card">
+                    <img src="images/woman2.jpg" alt="Rutina fuerza" />
+                    <h3>Fuerza y tonificación</h3>
+                    <p>Ejercicios con el peso corporal y bandas elásticas para fortalecer glúteos y piernas.</p>
+                </article>
+
+                <article class="card">
+                    <img src="images/woman3.jpg" alt="Rutina flexibilidad" />
+                    <h3>Flexibilidad y movilidad</h3>
+                    <p>Estiramientos y yoga suave para recuperar movilidad y reducir tensiones.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="tips">
+            <h2>Consejos rápidos</h2>
+            <ul>
+                <li>Respira siempre profundo durante tus ejercicios.</li>
+                <li>Hidratación: toma agua antes, durante y después.</li>
+                <li>Combina cardio, fuerza y movilidad para mejores resultados.</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contacto</h2>
+            
+            <!-- 
+                FORMULARIO ESTÁTICO - Para que funcione realmente sin PHP, 
+                reemplaza el action con uno de estos servicios gratuitos:
+                
+                Ejemplo Formspree:    action="https://formspree.io/f/tu-id"
+                Ejemplo Web3Forms:    action="https://api.web3forms.com/submit" + access_key hidden
+                Ejemplo Netlify:      agregar data-netlify="true" y name="contact"
+            -->
+            <form action="#" method="post">
+                <label>Nombre
+                    <input type="text" name="name" required placeholder="Tu nombre">
+                </label>
+                
+                <label>Email
+                    <input type="email" name="email" required placeholder="tu@email.com">
+                </label>
+                
+                <label>Mensaje
+                    <textarea name="message" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </label>
+                
+                <button type="submit" class="btn">Enviar mensaje</button>
+            </form>
+
+            <p class="note">
+                Nota: Actualmente este formulario no envía mensajes (es estático). 
+                Para activarlo, usa un servicio gratuito como Formspree o Netlify Forms.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Rutinas para Mujeres — Salud y Bienestar</p>
+        </div>
+    </footer>
+</body>
+</html>
