@@ -91,5 +91,143 @@
             <p>© 2026 Rutinas para Mujeres — Salud y Bienestar</p>
         </div>
     </footer>
+
+    <!-- Mini Chatbot local - 100% en la página, sin servidores -->
+    <button id="chatOpen" class="mini-chat-btn">💬</button>
+
+    <div id="miniChat" class="mini-chat">
+      <div class="mini-header">
+        <span>Asistente 💕</span>
+        <button id="chatClose">×</button>
+      </div>
+      <div id="chatBody" class="mini-body"></div>
+      <input id="chatInput" type="text" placeholder="Pregunta algo...">
+    </div>
+
+    <style>
+      .mini-chat-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: #ffb6c1;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(255,182,193,0.5);
+        z-index: 999;
+      }
+      .mini-chat {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 280px;
+        height: 340px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1000;
+      }
+      .mini-header {
+        background: #ffe4e9;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        color: #555;
+      }
+      .mini-header button {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #777;
+      }
+      .mini-body {
+        flex: 1;
+        padding: 12px;
+        overflow-y: auto;
+        background: #fffafa;
+        font-size: 14px;
+      }
+      .msg {
+        margin: 8px 0;
+        padding: 9px 12px;
+        border-radius: 16px;
+        max-width: 85%;
+      }
+      .bot-msg { background: #ffe4e9; align-self: flex-start; }
+      .user-msg { background: #e0f7fa; margin-left: auto; }
+      #chatInput {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-top: 1px solid #eee;
+        font-size: 14px;
+        outline: none;
+      }
+    </style>
+
+    <script>
+      const openBtn = document.getElementById('chatOpen');
+      const closeBtn = document.getElementById('chatClose');
+      const chat = document.getElementById('miniChat');
+      const body = document.getElementById('chatBody');
+      const input = document.getElementById('chatInput');
+
+      function botSay(text) {
+        const div = document.createElement('div');
+        div.className = 'msg bot-msg';
+        div.textContent = text;
+        body.appendChild(div);
+        body.scrollTop = body.scrollHeight;
+      }
+
+      function userSay(text) {
+        const div = document.createElement('div');
+        div.className = 'msg user-msg';
+        div.textContent = text;
+        body.appendChild(div);
+        body.scrollTop = body.scrollHeight;
+      }
+
+      function responder(pregunta) {
+        const p = pregunta.toLowerCase();
+        if (p.includes('hola') || p.includes('buen') || p.includes('salu')) return '¡Hola linda! 😊 ¿Rutina de hoy o algún consejito de bienestar?';
+        if (p.includes('cardio') || p.includes('aerób')) return 'Cardio suave: 20-30 min, bajo impacto. ¡Sube tu energía sin castigar las rodillas! 💗';
+        if (p.includes('fuerza') || p.includes('tonif') || p.includes('glúteos') || p.includes('pierna')) return 'Fuerza con peso corporal o bandas: glúteos y piernas firmes en 3-4 sesiones semanales ✨';
+        if (p.includes('flex') || p.includes('yoga') || p.includes('estir') || p.includes('movil')) return 'Flexibilidad: 10-15 min de yoga suave al final del día para soltar tensiones 🌸';
+        if (p.includes('agua') || p.includes('hidra') || p.includes('beber')) return '¡No olvides el agua! 2-3 litros al día, especialmente alrededor del ejercicio 💧';
+        if (p.includes('consejo') || p.includes('tip') || p.includes('respira')) return 'Respira profundo, hidrátate, combina todo y descansa. ¡Tú puedes! 🌟';
+        return 'Mmm… dime más sobre cardio, fuerza, yoga, hidratación o consejos y te ayudo con gusto 💕';
+      }
+
+      function enviar() {
+        const texto = input.value.trim();
+        if (!texto) return;
+        userSay(texto);
+        input.value = '';
+        setTimeout(() => botSay(responder(texto)), 400);
+      }
+
+      input.addEventListener('keypress', e => { if (e.key === 'Enter') enviar(); });
+      openBtn.onclick = () => { 
+        chat.style.display = 'flex'; 
+        openBtn.style.display = 'none'; 
+        if (body.children.length === 0) botSay('¡Hola! Soy tu mini asistente de bienestar 💕 ¿En qué te ayudo hoy?');
+      };
+      closeBtn.onclick = () => { 
+        chat.style.display = 'none'; 
+        openBtn.style.display = 'block'; 
+      };
+    </script>
+
 </body>
 </html>
